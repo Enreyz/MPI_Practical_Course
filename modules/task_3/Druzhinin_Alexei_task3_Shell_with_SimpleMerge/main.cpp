@@ -73,12 +73,12 @@ int main(int argc, char* argv[]) {
     int size;
     int remainder;
     MPI_Status status;
-    double *rem_array = nullptr;
-    double *array = nullptr;
-    double *result_array = nullptr;
-    double *array_l = nullptr;
-    double *tmp_array = nullptr;
-    double *second_array = nullptr;
+    double *rem_array = NULL;
+    double *array = NULL;
+    double *result_array = NULL;
+    double *array_l = NULL;
+    double *tmp_array = NULL;
+    double *second_array = NULL;
     double start_time = 0;
     double end_time = 0;
     double start_time_l = 0;
@@ -168,12 +168,12 @@ int main(int argc, char* argv[]) {
         std::cout << std::endl;
         Check(result_array, array_l, size);
     }
-    if (array != nullptr) delete[]array;
-    if (array_l != nullptr) delete[]array_l;
-    if (tmp_array != nullptr) delete[]tmp_array;
-    if (result_array != nullptr) delete[]result_array;
-    if (rem_array != nullptr) delete[]rem_array;
-    if (second_array != nullptr) delete[]second_array;
+    if (array != NULL) delete[]array;
+    if (array_l != NULL) delete[]array_l;
+    if (tmp_array != NULL) delete[]tmp_array;
+    if (result_array != NULL) delete[]result_array;
+    if (rem_array != NULL) delete[]rem_array;
+    if (second_array != NULL) delete[]second_array;
     MPI_Finalize();
     return 0;
 }
