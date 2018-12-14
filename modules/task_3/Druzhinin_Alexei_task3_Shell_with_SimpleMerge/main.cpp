@@ -141,8 +141,10 @@ int main(int argc, char* argv[]) {
             result_array[i] = tmp_array[i];
         for (int i = 1; i < numProcs; i++) {
             // SORT MERGE
-            MPI_Recv(second_array, part_size, MPI_DOUBLE, i, 0, MPI_COMM_WORLD, &status);
-            result_array = SortMerge(result_array, second_array, i*part_size, part_size);
+            MPI_Recv(second_array, part_size, MPI_DOUBLE, i, 0, MPI_COMM_WORLD,
+            &status);
+            result_array = SortMerge(result_array, second_array, i*part_size,
+            part_size);
         }
     } else {
         MPI_Send(tmp_array, part_size, MPI_DOUBLE, 0 , 0 , MPI_COMM_WORLD);
@@ -153,7 +155,7 @@ int main(int argc, char* argv[]) {
             for (int i = 0; i < remainder; i++)
                 rem_array[i] = array[size - remainder + i];
             SortShell(rem_array, remainder);
-            result_array = SortMerge(result_array, rem_array, size - remainder, 
+            result_array = SortMerge(result_array, rem_array, size - remainder,
             remainder);
         }
         end_time = MPI_Wtime();
